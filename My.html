@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant QR Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+        #searchBox {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .menu-item {
+            display: block;
+            background: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        .menu-item img {
+            width: 100px; /* Adjust image size */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+        .menu-category {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1> SRI ABHIRUCHI </h1>
+    <img src="logo.png" alt="Restaurant Logo" width="150">
+    
+    <input type="text" id="searchBox" placeholder="Search for a dish...">
+    
+    <div id="menu">
+        <div class="Veg manchurian" data-category="starters">
+            <img src="images/Manchurian.jpg" alt=" veg manchurian">
+            🍲 Veg manchurian - ₹100
+        </div>
+        <div class="Veg Manchurian 65" data-category="starters">
+            <img src="images/Manchurian.jpeg" alt="veg manchurian 65">
+            🥗 veg manchurian - ₹120
+        </div>
+        <div class="menu-item" data-category="main-course">
+            <img src="butter-chicken.jpg" alt="Butter Chicken">
+            🍛 Butter Chicken - ₹250
+        </div>
+        <div class="menu-item" data-category="main-course">
+            <img src="veg-biryani.jpg" alt="Veg Biryani">
+            🍜 Veg Biryani - ₹180
+        </div>
+        <div class="menu-item" data-category="desserts">
+            <img src="chocolate-cake.jpg" alt="Chocolate Cake">
+            🍰 Chocolate Cake - ₹150
+        </div>
+        <div class="menu-item" data-category="drinks">
+            <img src="lemon-soda.jpg" alt="Lemon Soda">
+            🥤 Lemon Soda - ₹50
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchBox').addEventListener('input', function() {
+            let searchQuery = this.value.toLowerCase();
+            let items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (item.innerText.toLowerCase().includes(searchQuery)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
